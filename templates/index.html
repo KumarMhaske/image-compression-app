@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compression App</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- CSS Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #4A90E2;
+        }
+        p {
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: #666;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            background-color: #4A90E2;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 400;
+            display: inline-block;
+        }
+        label:hover {
+            background-color: #357ABD;
+        }
+        .file-path {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        button {
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 400;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 6px solid #3498db;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .decorative-shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #4A90E2;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .left-shape {
+            top: 10%;
+            left: 5%;
+            transform: rotate(-45deg);
+        }
+        .right-shape {
+            top: 10%;
+            right: 5%;
+            transform: rotate(45deg);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+        }
+        .footer span {
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        function showFileName() {
+            var fileInput = document.getElementById('file');
+            var filePath = document.querySelector('.file-path');
+            filePath.textContent = 'Selected file: ' + fileInput.files[0].name;
+        }
+
+        function showLoader() {
+            document.querySelector('.loader').style.display = 'block';
+        }
+
+        function hideLoader() {
+            document.querySelector('.loader').style.display = 'none';
+        }
+
+        function processForm(event) {
+            showLoader();
+
+            // Simulate form submission
+            setTimeout(function() {
+                hideLoader();
+            }, 5000); // Adjust this time based on the expected duration of the image processing
+        }
+    </script>
+</head>
+<body>
+    <div class="decorative-shape left-shape"></div>
+    <div class="decorative-shape right-shape"></div>
+
+    <div class="container">
+        <h1>Image Compression App</h1>
+        <p>Upload an image to compress it using our advanced algorithm KNN.</p>
+        <form method="POST" enctype="multipart/form-data" onsubmit="processForm(event)">
+            <label for="file">Choose an Image</label>
+            <input type="file" name="file" id="file" accept="image/*" onchange="showFileName()" required>
+            <div class="file-path"></div>
+            <button type="submit">Upload and Compress</button>
+        </form>
+        <div class="loader"></div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Kumar Mhaske. Designed and Developed by <span>Kumar Mhaske</span>.</p>
+    </div>
+</body>
+</html>
