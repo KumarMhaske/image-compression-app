@@ -3,7 +3,7 @@
 
 This project is a Flask web application that compresses images using the KMeans clustering algorithm. The application allows users to upload images and receive a compressed version of the image.
 
-# Azure Link: https://my-flask-app-service-brepdhfrcyehhqgt.eastus-01.azurewebsites.net/
+## Azure Link: https://my-flask-app-service-brepdhfrcyehhqgt.eastus-01.azurewebsites.net/
 
 ## Project Overview
 
