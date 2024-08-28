@@ -43,10 +43,6 @@ The application is deployed on Azure App Service. You can access the live versio
 3. **Continuous Deployment:** Link your GitHub repository to the Azure App Service for continuous deployment.
 4. **Test Deployment:** Ensure the application is running smoothly by visiting the provided Azure URL.
 
-## Contributing
-
-Contributions are welcome! If you have suggestions or improvements, feel free to submit a pull request.
-
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).
